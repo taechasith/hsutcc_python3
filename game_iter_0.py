@@ -37,7 +37,6 @@ kb = KBPoller()
 
 
 def scan_keys():
-    # return the currently pressed movement key (or 'q' to quit)
     if "q" in kb.pressed:
         return "q"
     for ch in ("a", "d", "w", "s"):
