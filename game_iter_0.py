@@ -1,3 +1,6 @@
+from pynput import keyboard
+import time
+
 running = True
 
 player_x = 10
@@ -8,16 +11,48 @@ x_max = 100
 y_min = 0
 y_max = 100
 
-def scan_keys():
-    inp = input("a/d/w/s to move, q to quit:")
 
-    return inp
+class KBPoller:
+    def on_press(self, key):
+        try:
+            ch = key.char.lower()
+            self.pressed.add(ch)
+        except AttributeError:
+            pass
+
+    def on_release(self, key):
+        try:
+            ch = key.char.lower()
+            self.pressed.discard(ch)
+        except AttributeError:
+            pass
+
+    def __init__(self):
+        self.pressed = set()
+        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+        listener.start()
+
+
+kb = KBPoller()
+
+
+def scan_keys():
+    # return the currently pressed movement key (or 'q' to quit)
+    if "q" in kb.pressed:
+        return "q"
+    for ch in ("a", "d", "w", "s"):
+        if ch in kb.pressed:
+            return ch
+    return None
+
 
 def render_state():
     print("player is at:", player_x, player_y)
 
+
 def update_state(inp):
     global player_x, player_y, running
+
     if inp == "a":
         player_x -= 1
     elif inp == "d":
@@ -38,12 +73,9 @@ def update_state(inp):
     if player_y > y_max:
         player_y = y_max
 
-while running:
-    # read/check for user actions (input)
-    # update game state (physics, AI, etc)
-    # render game state (graphics)
 
+while running:
     render_state()
     inp = scan_keys()
-
     update_state(inp)
+    time.sleep(0.05)

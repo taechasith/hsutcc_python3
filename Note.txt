@@ -1,0 +1,1 @@
+Win API = set of functions Microsoft provides so programs can talk directly to Windows.
