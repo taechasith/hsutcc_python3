@@ -1,0 +1,19 @@
+2026-01-28 11:57:37,456 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-28 11:57:37,456 [33mPress CTRL+C to quit[0m
+2026-01-28 11:57:37,459  * Restarting with stat
+2026-01-28 11:57:38,238  * Debugger is active!
+2026-01-28 11:57:38,240  * Debugger PIN: 130-602-907
+2026-01-28 11:57:57,286 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-01-28 11:57:57,287 [33mPress CTRL+C to quit[0m
+2026-01-28 11:57:57,288  * Restarting with stat
+2026-01-28 11:57:58,066  * Debugger is active!
+2026-01-28 11:57:58,068  * Debugger PIN: 130-602-907
+2026-01-28 11:58:18,382 127.0.0.1 - - [28/Jan/2026 11:58:18] "GET / HTTP/1.1" 200 -
+2026-01-28 11:58:21,691 HTTP Request: POST https://api.mistral.ai/v1/embeddings "HTTP/1.1 200 OK"
+2026-01-28 11:58:21,692 ADD nickname=ge text=ehgw
+2026-01-28 11:58:21,692 TOP3 []
+2026-01-28 11:58:21,692 TOP3 []
+2026-01-28 11:58:21,692 RECOMMENDED []
+2026-01-28 11:58:21,692 127.0.0.1 - - [28/Jan/2026 11:58:21] "POST /submit HTTP/1.1" 200 -

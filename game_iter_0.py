@@ -6,6 +6,9 @@ running = True
 player_x = 10
 player_y = 10
 
+npc_x = 50
+npc_y = 50
+
 x_min = 0
 x_max = 100
 y_min = 0
@@ -29,7 +32,7 @@ class KBPoller:
 
     def __init__(self):
         self.pressed = set()
-        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release)
+        listener = keyboard.Listener(on_press=self.on_press, on_release=self.on_release, suppress=True)
         listener.start()
 
 
@@ -47,6 +50,7 @@ def scan_keys():
 
 def render_state():
     print("player is at:", player_x, player_y)
+    print("npc is at:", npc_x, npc_y)
 
 
 def update_state(inp):
@@ -77,4 +81,4 @@ while running:
     render_state()
     inp = scan_keys()
     update_state(inp)
-    time.sleep(0.05)
+    time.sleep(1/30)

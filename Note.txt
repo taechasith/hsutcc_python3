@@ -1,1 +1,28 @@
 Win API = set of functions Microsoft provides so programs can talk directly to Windows.
+
+DRY = Dont Repeat Yourself
+
+SRP (Single Responsibility Principle) = A class/module should have one responsibility which practically means “only one reason to change.
+
+Hard Coupling (Tight Coupling) = When components are highly dependent on each other, so changing one often forces changes in the other (and they may need to be present/working together to function).
+
+Embeding = converting content (usually text) into a list of numbers that represents its meaning. once text is in this number form, you can compare two pieces of text by “distance”: close = similar meaning, far = different meaning
+how it’s used (simple, common patterns)
+meaning-based search (semantic search)
+save embeddings for all your docs/FAQs
+embed the user’s question
+return the nearest matches (nearest neighbors)
+this finds relevant results even when the keywords don’t match.
+chatbot that answers from your documents (rag)
+do the semantic search step above to fetch the best doc snippets
+give those snippets to the LLM so it answers using your info
+recommendations
+embed products/articles/videos based on their descriptions
+“find items closest to this one (or to what the user likes)”
+grouping and cleanup
+clustering: group similar tickets/notes/articles automatically
+duplicate detection: find near-duplicate questions or reports by high similarity
+where you store them
+when you have lots of embeddings, you usually use a vector index / vector database to store them and run fast “nearest neighbor” searches (often with metadata filters)
+
+Agent = LLM is just a Neural Network that can continue text, Agent is an evolutionof LLM that have wider env. which can interact with things further, Agent can call fucntions each functions got it own args, and It runs by itself
